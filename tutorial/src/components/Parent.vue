@@ -1,6 +1,12 @@
 <template>
     <h1> I am parent </h1>
-    <Child :sathikoname="name"   :apedon="mancheharu" :apekofunction="getDetailsOfApeDon" normalText="helloworld" :nayafunction="apelepadyopuipui"/> 
+
+    <ul>
+    <li v-for="user in users" :key="user.name">
+    <Child :mancheharu="user"/>
+    </li>
+    </ul>
+   
   
 
 </template>
@@ -10,27 +16,29 @@ import Child from './Child.vue'
 export default {
     name:'Parent',
     components:{
-        Child
+        Child,
+    
     },
     data(){
         return {
-            name:"amira",
-            no:9900,
-            mancheharu:{
-                name:"apedon",
-                address:"ittachen"
-            }
-        }}
-        ,
-    methods:{
-            getDetailsOfApeDon(){
-                alert("ape live in ittachen")
-            },
-
-            apelepadyopuipui(){
-                console.log("ape ape k cha ape")
-            }
+            users:[
+                {
+                    name:"amir",
+                    email:"amir@gmail.com"
+                },
+                 {
+                    name:"hada",
+                    email:"hada@gmail.com"
+                },
+                 {
+                    name:"duwal",
+                    email:"duwal@gmail.com"
+                },
+            ]
+        }
     }
+
+        
     
 }
 </script>
